@@ -29,7 +29,12 @@ const Sidebar = ({ mobile = false, onNavigate }: SidebarProps) => {
   });
 
   // For demo purposes, use a mock user
-  const user = currentUser || {
+  const user: {
+    id: number;
+    fullName: string;
+    role: string;
+    username: string;
+  } = currentUser as any || {
     id: 1,
     fullName: "John Smith",
     role: "Administrator",
@@ -89,28 +94,29 @@ const Sidebar = ({ mobile = false, onNavigate }: SidebarProps) => {
           </div>
 
           {navigationItems.map((item) => (
-            <Link 
-              key={item.href} 
-              href={item.href}
-              onClick={() => handleNavigation(item.href)}
-            >
-              <a 
-                className={cn(
-                  "flex items-center px-6 py-3", 
-                  location === item.href 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-foreground hover:bg-neutral-100"
-                )}
-                style={
-                  location === item.href 
-                    ? { backgroundColor: primaryColor } 
-                    : undefined
-                }
+            <div key={item.href}>
+              <Link 
+                href={item.href}
+                onClick={() => handleNavigation(item.href)}
               >
-                {item.icon}
-                <span>{item.label}</span>
-              </a>
-            </Link>
+                <div 
+                  className={cn(
+                    "flex items-center px-6 py-3 cursor-pointer", 
+                    location === item.href 
+                      ? "bg-primary text-primary-foreground" 
+                      : "text-foreground hover:bg-neutral-100"
+                  )}
+                  style={
+                    location === item.href 
+                      ? { backgroundColor: primaryColor } 
+                      : undefined
+                  }
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </div>
+              </Link>
+            </div>
           ))}
 
           <div className="px-4 py-2 mt-6">
@@ -118,28 +124,29 @@ const Sidebar = ({ mobile = false, onNavigate }: SidebarProps) => {
           </div>
 
           {adminItems.map((item) => (
-            <Link 
-              key={item.href} 
-              href={item.href}
-              onClick={() => handleNavigation(item.href)}
-            >
-              <a 
-                className={cn(
-                  "flex items-center px-6 py-3", 
-                  location === item.href 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-foreground hover:bg-neutral-100"
-                )}
-                style={
-                  location === item.href 
-                    ? { backgroundColor: primaryColor } 
-                    : undefined
-                }
+            <div key={item.href}>
+              <Link 
+                href={item.href}
+                onClick={() => handleNavigation(item.href)}
               >
-                {item.icon}
-                <span>{item.label}</span>
-              </a>
-            </Link>
+                <div 
+                  className={cn(
+                    "flex items-center px-6 py-3 cursor-pointer", 
+                    location === item.href 
+                      ? "bg-primary text-primary-foreground" 
+                      : "text-foreground hover:bg-neutral-100"
+                  )}
+                  style={
+                    location === item.href 
+                      ? { backgroundColor: primaryColor } 
+                      : undefined
+                  }
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </div>
+              </Link>
+            </div>
           ))}
         </nav>
 
