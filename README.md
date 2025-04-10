@@ -110,4 +110,4 @@ Module visibility can be configured in the Settings page (coming in a future upd
 
 ## License
 
-MIT
+habizinnia@gmail.com
