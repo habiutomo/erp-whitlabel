@@ -2,6 +2,9 @@
 
 A customizable Enterprise Resource Planning (ERP) system built with React, Express, and modern web technologies. The system is designed to be white-labeled, allowing for custom branding while providing core business modules.
 
+![White-Label ERP System](1.png)
+
+
 ## Features
 
 ### Dashboard
